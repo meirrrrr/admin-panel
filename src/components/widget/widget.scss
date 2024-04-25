@@ -2,5 +2,26 @@
   display: flex;
   justify-content: space-between;
   flex: 1;
-  padding: 10px;
+  padding: 10px 10px 10px 20px;
+  -webkit-box-shadow: 3px 3px 35px -17px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 3px 35px -17px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 3px 35px -17px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  height: 100px;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .counter {
+    font-size: 28px;
+    font-weight: 300;
+  }
+
+  .link {
+    font-size: 12px;
+    border-bottom: 1px solid gray;
+  }
 }
