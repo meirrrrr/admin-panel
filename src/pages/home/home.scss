@@ -11,4 +11,19 @@
       gap: 20px;
     }
   }
+
+  .listContainer {
+    -webkit-box-shadow: 3px 3px 35px -17px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 3px 35px -17px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 3px 35px -17px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+
+    .listTitle {
+      font-weight: 500;
+      color: gray;
+      margin-bottom: 15px;
+    }
+  }
 }

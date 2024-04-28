@@ -12,7 +12,7 @@ const SideBar = ({
     { name: "Managers", icon: <AccountBoxIcon /> },
     { name: "Products", icon: <ShoppingBasketIcon /> },
     { name: "Orders", icon: <HomeRepairServiceIcon /> },
-    { name: "Settings", icon: <LogoutIcon /> },
+    { name: "Logout", icon: <LogoutIcon /> },
   ],
 }) => {
   return (
@@ -24,12 +24,24 @@ const SideBar = ({
       <div className="center">
         <p className="title">MAIN</p>
         <ul>
-          {buttons.map((button) => (
-            <li key={button}>
-              <div className="icon">{button.icon}</div>
-              <span>{button.name}</span>
-            </li>
-          ))}
+          {buttons.map((button) => {
+            // тут на li просто надо сделать redirect. и путь сделать admin/${button.name.lower}
+            // onClick={() => navigate(path)}
+            return (
+              <li key={button.name}>
+                <div className="icon">
+                  {button.name === "Products" ? (
+                    <ShoppingBasketIcon />
+                  ) : button.name === "Orders" ? (
+                    <HomeRepairServiceIcon />
+                  ) : (
+                    button.icon
+                  )}
+                </div>
+                <span>{button.name}</span>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="bottom">

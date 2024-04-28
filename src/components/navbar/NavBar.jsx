@@ -1,6 +1,6 @@
 import "./navbar.scss";
 
-const NavBar = ({ title = "ADMIN PAGE" }) => {
+const NavBar = ({ title }) => {
   return <div className="navbar">{title}</div>;
 };
 
