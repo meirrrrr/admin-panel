@@ -3,8 +3,8 @@ import Navbar from "../../components/navbar/NavBar";
 import DataTable from "../../components/dataTable/DataTable";
 import "./list.scss";
 
-const List = () => {
-  const title = "MANAGERS LIST";
+const List = ({ title }) => {
+  // const title = "MANAGERS LIST";
   return (
     <div className="list">
       <Sidebar />

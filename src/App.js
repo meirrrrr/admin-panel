@@ -21,6 +21,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route
             path="/admin"
             element={
@@ -36,7 +37,6 @@ function App() {
               />
             }
           />
-          <Route path="/login" element={<Login />} />
           <Route path="/admin/managers" element={<List />} />
           <Route path="/admin/orders" element={<ProductsList />} />
           <Route path="/manager" element={<Home />} />
