@@ -1,8 +1,6 @@
 import { useState } from "react";
 import logo from "../../assets/billboard-printing-1.webp";
 
-const productColumns = [];
-
 const managerColumns = [
   {
     field: "id",
@@ -40,6 +38,39 @@ const managerColumns = [
   {
     field: "role_id",
     headerName: "Role",
+    width: 160,
+  },
+];
+
+const productColumns = [
+  {
+    field: "id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "width",
+    headerName: "Width m",
+    width: 180,
+  },
+  {
+    field: "height",
+    headerName: "Height",
+    width: 160,
+  },
+  {
+    field: "display_type",
+    headerName: "Display type",
+    width: 160,
+  },
+  {
+    field: "location_id",
+    headerName: "Location",
+    width: 160,
+  },
+  {
+    field: "price",
+    headerName: "Price",
     width: 160,
   },
   // {

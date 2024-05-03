@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import ProductsList from "./pages/productsList/ProductsList";
-import List from "./pages/list/List";
-
+import ListProducts from "./pages/list/ListProducts";
+import ListManagers from "./pages/list/ListManagers";
 // нужно сделать так что бы посли ЛОГИНА если юзер админ то с редиректом path был admin == /admin
 
 // <Redirect
@@ -14,32 +13,15 @@ import List from "./pages/list/List";
 //   }}
 // /> redirect with react router dom
 
-const managersList = ["id", "width", "height"];
-
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route
-            path="/admin"
-            element={
-              <Home
-                mainTitle={"Admin"}
-                sideBarMenu={[
-                  "Home",
-                  "Managers",
-                  "Products",
-                  "Orders",
-                  "Logout",
-                ]}
-              />
-            }
-          />
-          <Route path="/admin/managers" element={<List />} />
-          <Route path="/admin/orders" element={<ProductsList />} />
-          <Route path="/manager" element={<Home />} />
+          <Route path="/admin/home" element={<Home />} />
+          <Route path="/admin/managers" element={<ListManagers />} />
+          <Route path="/admin/products" element={<ListProducts />} />
         </Routes>
       </BrowserRouter>
     </div>

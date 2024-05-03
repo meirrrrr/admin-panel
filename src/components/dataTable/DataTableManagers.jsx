@@ -4,20 +4,20 @@ import url from "../../url";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./dataTable.scss";
-import { managerColumns, productColumns } from "./dataSource";
+import { managerColumns } from "./dataSource";
+import { useLocation } from "react-router-dom";
 
-const DataTable = () => {
+const DataTableManagers = () => {
   const [data, setData] = useState([]);
   const token = sessionStorage.getItem("token");
-  const role = "manager";
   const apiClient = axios.create({ baseURL: url });
-
-  const columns = role == "manager" ? managerColumns : productColumns;
+  const location = useLocation();
+  const { buttonName } = location.state || {};
 
   // GET
   useEffect(() => {
     getData();
-  });
+  }, [buttonName]);
 
   apiClient.interceptors.request.use(
     (config) => {
@@ -74,7 +74,7 @@ const DataTable = () => {
     <div className="dataTable">
       <DataGrid
         rows={rows}
-        columns={columns.concat(actionColumn)}
+        columns={managerColumns.concat(actionColumn)}
         initialState={{
           pagination: {
             paginationModel: { page: 0, pageSize: 5 },
@@ -87,4 +87,4 @@ const DataTable = () => {
   );
 };
 
-export default DataTable;
+export default DataTableManagers;

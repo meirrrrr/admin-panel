@@ -1,24 +1,22 @@
 import "./sidebar.scss";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
-import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
-import LogoutIcon from "@mui/icons-material/Logout";
+import { adminButtons, managerButtons } from "./buttons.js";
+import { useNavigate } from "react-router-dom";
 
-const SideBar = ({
-  title = "Admin",
-  buttons = [
-    { name: "Home", icon: <DashboardIcon /> },
-    { name: "Managers", icon: <AccountBoxIcon /> },
-    { name: "Products", icon: <ShoppingBasketIcon /> },
-    { name: "Orders", icon: <HomeRepairServiceIcon /> },
-    { name: "Logout", icon: <LogoutIcon /> },
-  ],
-}) => {
+const SideBar = () => {
+  const navigate = useNavigate();
+  const role = "admin";
+
+  let buttons;
+  if (role == "admin") {
+    buttons = adminButtons;
+  } else {
+    buttons = managerButtons;
+  }
+
   return (
     <div className="sidebar">
       <div className="top">
-        <span className="logo">{title}</span>
+        <span className="logo">{role.toUpperCase()}</span>
       </div>
       <hr />
       <div className="center">
@@ -27,17 +25,17 @@ const SideBar = ({
           {buttons.map((button) => {
             // тут на li просто надо сделать redirect. и путь сделать admin/${button.name.lower}
             // onClick={() => navigate(path)}
+            //
             return (
-              <li key={button.name}>
-                <div className="icon">
-                  {button.name === "Products" ? (
-                    <ShoppingBasketIcon />
-                  ) : button.name === "Orders" ? (
-                    <HomeRepairServiceIcon />
-                  ) : (
-                    button.icon
-                  )}
-                </div>
+              <li
+                key={button.name}
+                onClick={() =>
+                  navigate(`/admin/${button.name.toLowerCase()}`, {
+                    state: { buttonName: button.name },
+                  })
+                }
+              >
+                <div className="icon">{button.icon}</div>
                 <span>{button.name}</span>
               </li>
             );

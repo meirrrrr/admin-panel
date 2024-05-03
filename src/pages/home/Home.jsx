@@ -4,14 +4,15 @@ import NavBar from "../../components/navbar/NavBar";
 import Widget from "../../components/widget/Widget";
 import TableProduct from "../../components/table/TableProduct";
 
-const Home = ({ mainTitle, sideBarMenu }) => {
-  const title = "ADMIN PAGE";
+const Home = () => {
+  // role взять с session storage
+  const role = "admin";
 
   return (
     <div className="home">
-      <SideBar />
+      <SideBar title={role} />
       <div className="homeContainer">
-        <NavBar title={title} />
+        <NavBar title={role} />
         <div className="widgets">
           <Widget />
           <Widget />
