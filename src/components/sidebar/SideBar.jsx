@@ -7,7 +7,7 @@ const SideBar = () => {
   const role = "admin";
 
   let buttons;
-  if (role == "admin") {
+  if (role === "admin") {
     buttons = adminButtons;
   } else {
     buttons = managerButtons;
@@ -25,15 +25,20 @@ const SideBar = () => {
           {buttons.map((button) => {
             // тут на li просто надо сделать redirect. и путь сделать admin/${button.name.lower}
             // onClick={() => navigate(path)}
-            //
             return (
               <li
                 key={button.name}
-                onClick={() =>
-                  navigate(`/admin/${button.name.toLowerCase()}`, {
-                    state: { buttonName: button.name },
-                  })
-                }
+                onClick={() => {
+                  if (button.name.toLowerCase() === "logout") {
+                    navigate(`/login`);
+                  } else if (button.name.toLowerCase() === "home") {
+                    navigate(`/admin`);
+                  } else {
+                    navigate(`/admin/${button.name.toLowerCase()}`, {
+                      state: { buttonName: button.name },
+                    });
+                  }
+                }}
               >
                 <div className="icon">{button.icon}</div>
                 <span>{button.name}</span>

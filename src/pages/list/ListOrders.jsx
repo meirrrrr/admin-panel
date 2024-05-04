@@ -1,10 +1,9 @@
 import Sidebar from "../../components/sidebar/SideBar";
 import Navbar from "../../components/navbar/NavBar";
-import { useLocation } from "react-router-dom";
-import DataTableManagers from "../../components/dataTable/DataTableManagers";
+import DataTableOrders from "../../components/dataTable/DataTableOrders";
 import "./list.scss";
 
-const ListManagers = () => {
+const ListOrders = () => {
   // const title = "MANAGERS LIST";
   // const role = sessionStorage.getItem("role");
   const role = "admin";
@@ -14,10 +13,10 @@ const ListManagers = () => {
       <Sidebar title={role} />
       <div className="listContainer">
         <Navbar title={role} />
-        <DataTableManagers />
+        <DataTableOrders />
       </div>
     </div>
   );
 };
 
-export default ListManagers;
+export default ListOrders;
